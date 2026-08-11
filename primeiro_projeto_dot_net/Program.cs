@@ -1,4 +1,12 @@
 ﻿// Screem Sound
 
-string Message = "Boas vindas ao Screen Sound!";
-Console.WriteLine(Message);
+string  message = "******* Boas vindas ao Screen Sound! ********";
+
+void PrintMessage(string message)
+{
+    Console.WriteLine("*********************************************");
+    Console.WriteLine(message);
+    Console.WriteLine("*********************************************");
+}
+
+PrintMessage(message);
