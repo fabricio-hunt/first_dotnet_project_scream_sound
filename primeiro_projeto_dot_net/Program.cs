@@ -11,10 +11,8 @@ string message = (@"
 void PrintMessage(string message)
 {
     Console.WriteLine(message);
-    Console.WriteLine("Bem-vindo ao Screen Sound!");
+    Console.WriteLine("\nBem-vindo ao Screen Sound!");
 }
-
-
 
 void ShowMenuOptions()
 {
@@ -25,5 +23,17 @@ void ShowMenuOptions()
     Console.WriteLine("0. Sair");
 }
 
+// Print the welcome message and show the menu options
 PrintMessage(message);
 ShowMenuOptions();
+
+Console.Write("\nDigite uma opção: ");
+string selectOption = Console.ReadLine()!;
+int numericOption = int.Parse(selectOption);
+if (numericOption == 1)
+{
+    Console.WriteLine("Você escolheu a opção " + selectOption );
+}
+
+Console.WriteLine("FIM DO PROGRAMA");
+
