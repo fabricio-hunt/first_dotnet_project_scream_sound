@@ -38,7 +38,7 @@ void MenuSelection()
     int numericOption = int.Parse(selectOption);
     switch (numericOption)
     {
-        case 1:
+        case 1: RegisterBand();
             Console.WriteLine("Cadastrar banda");
             break;
         case 2:
@@ -62,6 +62,17 @@ void MenuSelection()
 ;
 
 MenuSelection();
+
+//Register a band function
+void RegisterBand()
+{
+    Console.Clear();
+    Console.WriteLine("Cadastrar banda");
+    Console.Write("\nDigite o nome da banda: ");
+    string bandName = Console.ReadLine()!;
+    Console.WriteLine($"Banda {bandName} cadastrada com sucesso!");
+    MenuSelection();
+}
 
 Console.WriteLine("\nFIM DO PROGRAMA");
 
