@@ -7,6 +7,8 @@ string message = (@"
 ░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░");
+// List of bands
+List<string> listBands = new List<string>();
 
 // Function to print the welcome message
 void PrintMessage(string message)
@@ -70,7 +72,9 @@ void RegisterBand()
     Console.WriteLine("Cadastrar banda");
     Console.Write("\nDigite o nome da banda: ");
     string bandName = Console.ReadLine()!;
+    listBands.Add(bandName);
     Console.WriteLine($"Banda {bandName} cadastrada com sucesso!");
+    Console.Clear();
     MenuSelection();
 }
 
