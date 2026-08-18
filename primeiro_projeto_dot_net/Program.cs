@@ -7,6 +7,7 @@ string message = (@"
 ░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░");
+
 // List of bands
 List<string> listBands = new List<string>();
 
@@ -24,7 +25,8 @@ void ShowMenuOptions()
     Console.WriteLine("2. Listar bandas");
     Console.WriteLine("3. Avaliar banda");
     Console.WriteLine("4. Ver média da banda");
-    Console.WriteLine("0. Sair");
+    Console.WriteLine("5. Mostrar opções do menu");
+    Console.WriteLine("0. Sair do programa");
 }
 
 // Print the welcome message and show the menu options
@@ -40,10 +42,12 @@ void MenuSelection()
     int numericOption = int.Parse(selectOption);
     switch (numericOption)
     {
-        case 1: RegisterBand();
+        case 1: 
+            RegisterBand();
             Console.WriteLine("Cadastrar banda");
             break;
-        case 2:
+        case 2: 
+            showRegisteredBands(); //Show the list of bands
             Console.WriteLine("Listar bandas");
             break;
         case 3:
@@ -52,7 +56,13 @@ void MenuSelection()
         case 4:
             Console.WriteLine("Ver média da banda");
             break;
+        case 5:
+            Console.Clear();
+            ShowMenuOptions();
+            MenuSelection();
+            break;
         case 0:
+            Console.Clear();
             Console.WriteLine("Saindo do programa...");
             break;
         default:
@@ -60,8 +70,7 @@ void MenuSelection()
             MenuSelection();
             break;
     }
-}
-;
+};
 
 MenuSelection();
 
@@ -76,6 +85,27 @@ void RegisterBand()
     Console.WriteLine($"Banda {bandName} cadastrada com sucesso!");
     Console.Clear();
     MenuSelection();
+}
+void showRegisteredBands()
+{
+    Console.Clear();
+    Console.WriteLine("**********************************");
+    Console.WriteLine("Listar bandas");
+    Console.WriteLine("**********************************");
+    if (listBands.Count == 0)
+    {
+        Console.WriteLine("Nenhuma banda cadastrada.");
+    }
+    else
+    {
+        Console.WriteLine("\nBandas cadastradas:");
+        foreach (string band in listBands)
+        {
+            Console.WriteLine(band);
+        }
+    }
+    MenuSelection();
+   
 }
 
 Console.WriteLine("\nFIM DO PROGRAMA");
